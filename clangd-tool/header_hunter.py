@@ -41,7 +41,7 @@ def find_unique_header_paths(folder_path):
 
     return sorted(set(split_paths))
 
-def write_compile_flags_file(output_file, header_paths, directories):
+def write_compile_flags_file(output_file, header_paths):
     lines = [
         'If:',
         '    PathMatch: [.*/.cpp, .*/.cxx, .*/.cc, .*/.h, .*/.hpp, .*/.hxx]',
@@ -83,7 +83,7 @@ def main():
         print(f"-- Searching for header files in: {directory}")
         unique_header_paths += find_unique_header_paths(directory)
 
-    write_compile_flags_file(".clangd", unique_header_paths, directories)
+    write_compile_flags_file(".clangd", unique_header_paths)
 
 if __name__ == "__main__":
     main()
