@@ -1,6 +1,6 @@
 # set target name
-get_filename_component(dir_name ${CMAKE_CURRENT_LIST_DIR} NAME)
-set (PRESENT_TARGET ${dir_name})
+get_filename_component(DIR_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
+set (PRESENT_TARGET ${DIR_NAME})
 
 # add source code
 set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
