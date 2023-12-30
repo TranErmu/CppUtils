@@ -11,7 +11,6 @@ foreach(file ${SRCS})
         message(STATUS ${file})
 endforeach()
 
-
 add_executable(${PRESENT_TARGET} ${SRCS})
 
 # target_link_libraries()
