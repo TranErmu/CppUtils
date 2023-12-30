@@ -1,4 +1,5 @@
 # set target name
+# default is the current folder name
 get_filename_component(DIR_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 set (PRESENT_TARGET ${DIR_NAME})
 
