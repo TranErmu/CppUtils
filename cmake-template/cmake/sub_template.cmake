@@ -1,8 +1,10 @@
 # set target name
-set (PRESENT_TARGET @TARGET_NAME@)
+# default is the name of the current folder
+get_filename_component(dir_name ${CMAKE_CURRENT_LIST_DIR} NAME)
+set (PRESENT_TARGET ${dir_name})
 
 # add source code
-set(SRC_DIR ".")
+set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
 FIND_SRC_FILE(SRCS ${SRC_DIR})
 
 LOG_INFO("source files:")
