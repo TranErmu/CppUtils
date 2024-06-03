@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 
 # set proj
-project(DEMO VERSION 1.0)
+project(Exec VERSION 1.0)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # add cmake scripts
 set(INCLUDE_CAMKES 
@@ -16,6 +18,7 @@ endforeach()
 set(CMAKE_C_STANDARD   11)
 set(CMAKE_CXX_STANDARD 11)
 
+# set install prefix
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/output)
 
 # add headers dir
@@ -29,31 +32,5 @@ foreach(dir ${INCLUDES})
         message(STATUS ${dir})
 endforeach()
 
-# add sub dir
-# add_subdirectory(${PROJECT_SOURCE_DIR}/src)
+# add_subdirectory(${PROJECT_SOURCE_DIR}/src/practise/test)
 
-############################################################
-# 以下可放在子脚本中，根据实际修改
-
-# add source code
-set(SRC_DIR 
-    ${PROJECT_SOURCE_DIR}/src/
-    # ${PROJECT_SOURCE_DIR}/src/compressString
-    )
-FIND_SRC_FILE(SRCS ${SRC_DIR})
-
-LOG_INFO("source files:")
-foreach(file ${SRCS})
-        message(STATUS ${file})
-endforeach()
-
-# target_link_libraries()
-
-add_executable(${PROJECT_NAME} ${SRCS})
-install(TARGETS ${PROJECT_NAME}
-        LIBRARY DESTINATION lib             # 动态库安装路径
-        ARCHIVE DESTINATION lib             # 静态库安装路径
-        RUNTIME DESTINATION bin             # 可执行文件安装路径
-        PUBLIC_HEADER DESTINATION include   # 头文件安装路径
-        )
-# target_include_directories(${PROJ_NAME} PUBLIC include)
